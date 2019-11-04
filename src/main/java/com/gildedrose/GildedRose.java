@@ -31,7 +31,6 @@ public class GildedRose {
                     items[i].quality = items[i].quality + 1;
                     logger.info("L'item " + items[i].name + " prend " + items[i].quality + " de qualité");
 
-
                     if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                         if (items[i].sellIn < 11) {
                             if (items[i].quality < 50) {
