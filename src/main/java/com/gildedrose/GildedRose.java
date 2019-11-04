@@ -59,7 +59,7 @@ public class GildedRose {
             if (item.sellIn < 0 && item.quality > 0) {
                 item.quality--;
             }
-            if (item.name.contains("Conjured")  && item.quality > 0) {
+            if (item.name.equals("Conjured Mana Cake") && item.name.equals("Conjured Chocolate Cake") && item.quality > 0) {
                 item.quality = ConjuredThings(item);
             }
         }
