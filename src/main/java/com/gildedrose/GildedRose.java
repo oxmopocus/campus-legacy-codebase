@@ -60,6 +60,7 @@ public class GildedRose {
                 item.quality--;
             }
             if (item.name.equals("Conjured Mana Cake") && item.name.equals("Conjured Chocolate Cake") && item.quality > 0) {
+                logger.debug("UP: " + item.name + " " + item.sellIn + " " + item.quality);
                 item.quality = ConjuredThings(item);
             }
         }
