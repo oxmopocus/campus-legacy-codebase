@@ -1,7 +1,6 @@
 package com.gildedrose;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 public class GildedRose {
     final static Logger logger = LoggerFactory.getLogger(GildedRose.class);
     Item[] items;
@@ -15,8 +14,7 @@ public class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
             if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-                logger.info("NS: " + item.name + " " + item.sellIn + " " + item.quality);
-              //  logger.debug("NS: " + item.name + " " + item.sellIn + " " + item.quality);
+                logger.debug("NS: " + item.name + " " + item.sellIn + " " + item.quality);
                 SellIn(item);
                 NormalItem(item);
             }
@@ -30,8 +28,7 @@ public class GildedRose {
     public void NormalItem(Item item) {
         if (item.name.equals("Aged Brie") || item.name.equals(concert)) {
             item.quality = QualityUp(item);
-            logger.info("UP: " + item.name + " " + item.sellIn + " " + item.quality);
-           // logger.debug("UP: " + item.name + " " + item.sellIn + " " + item.quality);
+            logger.debug("UP: " + item.name + " " + item.sellIn + " " + item.quality);
         } else if (item.name.equals("Aging Red Wine")) {
             if (item.sellIn < -100) {
                 if (item.quality > 0) {
@@ -42,8 +39,7 @@ public class GildedRose {
             }
         } else {
             item.quality = QualityDown(item);
-            logger.info("DW: " + item.name + " " + item.sellIn + " " + item.quality);
-           // logger.debug("DW: " + item.name + " " + item.sellIn + " " + item.quality);
+            logger.debug("DW: " + item.name + " " + item.sellIn + " " + item.quality);
         }
     }
 
@@ -63,8 +59,7 @@ public class GildedRose {
             if (item.sellIn < 0 && item.quality > 0) {
                 item.quality--;
             }
-            if (item.name.contains("Conjured") && item.quality > 0) {
-                logger.info("Conjured: " + item.name + " " + item.sellIn + " " + item.quality);
+            if (item.name.contains("Conjured") && item.name.equals("Conjured Chocolate Cake") && item.quality > 0) {
                 item.quality = ConjuredThings(item);
             }
         }
