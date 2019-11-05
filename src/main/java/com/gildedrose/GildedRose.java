@@ -1,6 +1,7 @@
 package com.gildedrose;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 public class GildedRose {
     final static Logger logger = LoggerFactory.getLogger(GildedRose.class);
     Item[] items;
@@ -63,6 +64,7 @@ public class GildedRose {
                 item.quality--;
             }
             if (item.name.contains("Conjured") && item.quality > 0) {
+                logger.info("Conjured: " + item.name + " " + item.sellIn + " " + item.quality);
                 item.quality = ConjuredThings(item);
             }
         }
