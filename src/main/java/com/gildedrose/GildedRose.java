@@ -112,18 +112,18 @@ for (int i = 0; i < items.length; i++) {
 
     private Item SelectItemByName(Item item) {
 
-        logger.info("before : " +  item.name +  " Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
+    //    logger.info("before : " +  item.name +  " Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
 
         if (item.name.startsWith("Conjured")){
-            logger.info("conjured before : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
+        //    logger.info("conjured before : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
 
             item.quality = qualityBounded(item.quality,-2);
 
-            logger.info("conjured after : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
+         //   logger.info("conjured after : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
 
         }else if (item.name.startsWith("Sulfuras") ){
             //nothing to do
-            logger.info("i'm Sulfuras  ... doing nothing");
+         //   logger.info("i'm Sulfuras  ... doing nothing");
         }else if (item.name.contains("Brie") ){
 
             logger.info("Brie before : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
@@ -137,37 +137,36 @@ for (int i = 0; i < items.length; i++) {
 
             if (item.sellIn < 0){
                 item.quality = qualityBounded(item.quality,-50);
-                logger.info("< 0 conjured After : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
+            //    logger.info("< 0 conjured After : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
             }else if (item.sellIn >= 0 && item.sellIn < 6   ){
                 item.quality = qualityBounded(item.quality,3);
-                logger.info("< 6 conjured After : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
+             //   logger.info("< 6 conjured After : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
             }else if (item.sellIn > 5 && item.sellIn < 11){
                 item.quality = qualityBounded(item.quality,2);
-                logger.info(" < 11 conjured After : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
+               // logger.info(" < 11 conjured After : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
             }else{
                 item.quality = qualityBounded(item.quality,1);
-                logger.info("other case After : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
+              //  logger.info("other case After : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
             }
             // other  unNamedItems
         }else{
             if (item.sellIn < 0){
-                logger.info(" < 0 foo before : Ql  : " + item.quality  );
+               // logger.info(" < 0 foo before : Ql  : " + item.quality  );
                 item.quality = qualityBounded(item.quality,-2);
-                logger.info("< 0  foo after : Ql  : " + item.quality  );
+               // logger.info("< 0  foo after : Ql  : " + item.quality  );
             }else{
                 logger.info("foo before : Ql  : " + item.quality  );
                 item.quality = qualityBounded(item.quality,-1);
-                logger.info("foo after : Ql  : " + item.quality  );
+               // logger.info("foo after : Ql  : " + item.quality  );
             }
-
         }
+
         // Sellin decrease in all cases
         if (!item.name.startsWith("Sulfuras")){
             item  = downSellin(item , 1);
         }
 
-
-        logger.info("after  : " +  item.name +  " Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
+        //logger.info("after  : " +  item.name +  " Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
         return item;
     }
     /**
