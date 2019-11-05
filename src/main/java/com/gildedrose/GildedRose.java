@@ -127,7 +127,9 @@ for (int i = 0; i < items.length; i++) {
         }else if (item.name.contains("Brie") ){
 
             logger.info("Brie before : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
-            item.quality = qualityBounded(item.quality,1);
+            int s = 1;
+            if ( item.sellIn <= 0 ) s = 2;
+            item.quality = qualityBounded(item.quality, s); // item.sellIn < 0 ? 2 : 1
             logger.info("brie after : Ql  : " + item.quality  + " | sellIn :  " + item.sellIn);
 
         }else if (item.name.contains("Backstage passes") ){

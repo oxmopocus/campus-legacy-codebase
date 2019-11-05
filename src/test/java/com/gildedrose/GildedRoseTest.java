@@ -15,10 +15,13 @@ class GildedRoseTest {
 
     @Test
     void cheese() {
-        Item[] items = new Item[] { new Item("Aged Brie", 2, 0) };
+        Item[] items = new Item[] { new Item("Aged Brie", 10, 10) };
         GildedRose app = new GildedRose(items);
-        app.updateQuality();
-        assertThat(app.items[0].sellIn).isEqualTo(1);
+        for(int i=0; i<20; i++) {
+            app.updateQuality();
+        }
+        assertThat(app.items[0].sellIn).isEqualTo(-10);
+        assertThat(app.items[0].quality).isEqualTo(40);
     }
 
     @Test
